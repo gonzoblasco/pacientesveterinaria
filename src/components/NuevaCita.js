@@ -18,12 +18,12 @@ class NuevaCita extends Component {
 
   handleChange = e => {
     // console.log(`${e.target.name}: ${e.target.value}`);
-    this.setState({
+    this.setState( {
       cita: {
         ...this.state.cita,
-        [e.target.name]: e.target.value
+        [ e.target.name ]: e.target.value
       }
-    });
+    } );
   };
 
   handleSubmit = e => {
@@ -38,26 +38,26 @@ class NuevaCita extends Component {
       hora === "" ||
       sintomas === ""
     ) {
-      this.setState({
+      this.setState( {
         error: true
-      });
+      } );
 
       return;
     } else {
-      this.setState({
+      this.setState( {
         error: false
-      });
+      } );
     }
 
     const nuevaCita = { ...this.state.cita };
     nuevaCita.id = uuid();
 
-    this.props.crearNuevaCita(nuevaCita);
+    this.props.crearNuevaCita( nuevaCita );
 
-    this.setState({ ...stateInicial });
+    this.setState( { ...stateInicial } );
   };
 
-  render() {
+  render () {
     const { error } = this.state;
 
     return (
@@ -67,13 +67,13 @@ class NuevaCita extends Component {
             Llena el Formulario para crear una Nueva Cita
           </h2>
 
-          {error ? (
+          { error ? (
             <div className="alert alert-danger mt-2 mb-5 text-center">
               Todos los campos son obligatorios
             </div>
-          ) : null}
+          ) : null }
 
-          <form onSubmit={this.handleSubmit}>
+          <form onSubmit={ this.handleSubmit }>
             <div className="form-group row">
               <label className="col-sm-4 col-lg-2 col-form-label">
                 Nombre Mascota
@@ -82,14 +82,14 @@ class NuevaCita extends Component {
                 <input
                   className="form-control"
                   name="mascota"
-                  onChange={this.handleChange}
+                  onChange={ this.handleChange }
                   placeholder="Nombre Mascota"
                   type="text"
-                  value={this.state.cita.mascota}
+                  value={ this.state.cita.mascota }
                 />
               </div>
             </div>
-            {/* form-group */}
+            {/* form-group */ }
 
             <div className="form-group row">
               <label className="col-sm-4 col-lg-2 col-form-label">
@@ -99,14 +99,14 @@ class NuevaCita extends Component {
                 <input
                   className="form-control"
                   name="propietario"
-                  onChange={this.handleChange}
+                  onChange={ this.handleChange }
                   placeholder="Nombre Dueño Mascota"
                   type="text"
-                  value={this.state.cita.propietario}
+                  value={ this.state.cita.propietario }
                 />
               </div>
             </div>
-            {/* form-group */}
+            {/* form-group */ }
 
             <div className="form-group row">
               <label className="col-sm-4 col-lg-2 col-form-label">Fecha</label>
@@ -114,9 +114,9 @@ class NuevaCita extends Component {
                 <input
                   className="form-control"
                   name="fecha"
-                  onChange={this.handleChange}
+                  onChange={ this.handleChange }
                   type="date"
-                  value={this.state.cita.fecha}
+                  value={ this.state.cita.fecha }
                 />
               </div>
               <label className="col-sm-4 col-lg-2 col-form-label">Hora</label>
@@ -124,13 +124,13 @@ class NuevaCita extends Component {
                 <input
                   className="form-control"
                   name="hora"
-                  onChange={this.handleChange}
+                  onChange={ this.handleChange }
                   type="time"
-                  value={this.state.cita.hora}
+                  value={ this.state.cita.hora }
                 />
               </div>
             </div>
-            {/* form-group */}
+            {/* form-group */ }
 
             <div className="form-group row">
               <label className="col-sm-4 col-lg-2 col-form-label">
@@ -140,13 +140,13 @@ class NuevaCita extends Component {
                 <textarea
                   className="form-control"
                   name="sintomas"
-                  onChange={this.handleChange}
+                  onChange={ this.handleChange }
                   placeholder="Describe los Sintomas"
-                  value={this.state.cita.sintomas}
+                  value={ this.state.cita.sintomas }
                 ></textarea>
               </div>
             </div>
-            {/* form-group */}
+            {/* form-group */ }
 
             <input
               type="submit"
@@ -162,6 +162,6 @@ class NuevaCita extends Component {
 
 NuevaCita.propTypes = {
   crearNuevaCita: PropTypes.func.isRequired
-}
+};
 
 export default NuevaCita;

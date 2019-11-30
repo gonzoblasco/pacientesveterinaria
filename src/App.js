@@ -9,43 +9,43 @@ class App extends Component {
     citas: []
   };
 
-  componentDidMount() {
-    const citasLS = localStorage.getItem("citas");
+  componentDidMount () {
+    const citasLS = localStorage.getItem( "citas" );
 
-    if (citasLS) {
-      this.setState({
-        citas: JSON.parse(citasLS)
-      });
+    if ( citasLS ) {
+      this.setState( {
+        citas: JSON.parse( citasLS )
+      } );
     }
   }
 
-  componentDidUpdate(prevProps, prevState, snapshot) {
-    localStorage.setItem("citas", JSON.stringify(this.state.citas));
+  componentDidUpdate ( prevProps, prevState, snapshot ) {
+    localStorage.setItem( "citas", JSON.stringify( this.state.citas ) );
   }
 
   crearNuevaCita = datos => {
-    const citas = [...this.state.citas, datos];
-    this.setState({ citas });
+    const citas = [ ...this.state.citas, datos ];
+    this.setState( { citas } );
   };
 
   eliminarCita = id => {
-    const citasActuales = [...this.state.citas];
-    const citas = citasActuales.filter(cita => cita.id !== id);
-    this.setState({ citas });
+    const citasActuales = [ ...this.state.citas ];
+    const citas = citasActuales.filter( cita => cita.id !== id );
+    this.setState( { citas } );
   };
 
-  render() {
+  render () {
     return (
       <div className="container">
         <Header titulo="Administrador Pacientes Veterinaria" />
         <div className="row">
           <div className="col-md-10 mx-auto">
-            <NuevaCita crearNuevaCita={this.crearNuevaCita} />
+            <NuevaCita crearNuevaCita={ this.crearNuevaCita } />
           </div>
           <div className="mt-5 col-md-10 mx-auto">
             <ListaCitas
-              citas={this.state.citas}
-              eliminarCita={this.eliminarCita}
+              citas={ this.state.citas }
+              eliminarCita={ this.eliminarCita }
             />
           </div>
         </div>
