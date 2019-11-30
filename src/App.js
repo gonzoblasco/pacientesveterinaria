@@ -37,7 +37,7 @@ class App extends Component {
   render () {
     return (
       <div className="container">
-        <Header titulo="Administrador Pacientes" />
+        <Header titulo="Administrador Pacientes Veterinaria" />
         <div className="row">
           <div className="col-md-10 mx-auto">
             <NuevaCita crearNuevaCita={ this.crearNuevaCita } />
